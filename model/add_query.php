@@ -1,7 +1,7 @@
 <html>
     <body>
     
-    <a href="index.php">Return Home</a>
+    <a href="../controller/index.php?action=landing">Return Home</a>
 
     <?php
         $user = 'root';
