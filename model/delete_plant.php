@@ -1,7 +1,7 @@
 <html>
     <body>
     
-    <a href="index.php">Return Home</a>
+    <a href="../controller/index.php?action=landing">Return Home</a>
 
     <?php
         $user = 'root';
@@ -10,7 +10,7 @@
         $q = 'DELETE FROM
         PLANT        
         WHERE
-        p_id = '.$_GET['p_id'].'
+        p_id = '.$delete_plant_id.'
         ';
         echo $q;
         try {

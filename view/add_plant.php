@@ -1,36 +1,7 @@
 <html>
-    <?php
-        $user = 'root';
-        $pass = '';
-        $db = new PDO('mysql:host=localhost;dbname=pch', $user, $pass);
-        try {
-            $soil_types = $db->query(
-                'SELECT
-                s_id, soil_type
-                FROM
-                SOIL
-                ');
-            $soil_types = $soil_types->fetchAll();
-        } catch (PDOException $e) {
-            echo 'Error Thrown: ' . $e->getMessage();
-            die();
-        }
-        try {
-            $light_levels = $db->query(
-                'SELECT
-                l_id, light_level
-                FROM
-                LIGHT
-                ');
-            $light_levels = $light_levels->fetchAll();
-        } catch (PDOException $e) {
-            echo 'Error Thrown: ' . $e->getMessage();
-            die();
-        }
-    ?>
     <body>
         <a href="index.php">Return Home</a>
-        <form action="add_query.php">
+        <form action="../model/add_query.php">
             <label>
                 Plant Name
             </label>
