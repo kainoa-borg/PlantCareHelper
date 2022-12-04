@@ -21,11 +21,7 @@
             echo $row['light_level'];
             echo '</td>';
             echo '<td>';
-            if (isset($_SESSION['username'])) {
-                echo '<a href=?action=add_to_list&p_id='.$row['p_id'].'>Add To My List</a>';
-                if ($_SESSION['username'] == 'admin')
-                    echo '<a href=?action=delete_plant&p_id='.$row['p_id'].' style="padding-left: 1em">Delete</a>';
-            }
+            echo '<a href=?action=remove_from_list&pl_id='.$row['pl_id'].'>Remove</a>';
             echo '</td>';
             echo '</tr>';
         }
@@ -59,11 +55,6 @@
         foreach ($result as $row)
             display_row($row);
         ?>
-            <tr>
-                <td>
-                    <a href="?action=add_plant_form">Add New Plant</a>
-                </td>
-            </tr>
       </table> <!--//End of the table -->
    </section>
    </main> 
