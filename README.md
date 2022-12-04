@@ -6,10 +6,6 @@ Plant Care Helper
 
 Plant Care Helper is a php-driven web application providing the ability to create and store plant care instruction forms in a MariaDB database. Users may add new plants to the database, selecting care instructions like watering frequency and preferred light level of the specified plant, with delete functionality also available. Future plans are to include customizable, user-specific plant lists that allow individuals to retain sets of plant care instructions between visits to the application. Other planned features are a pre-installed selection of plant entries and corresponding care instructions, with a search feature implemented for selecting custom plant lists.
 
-## Version History
-* 0.1 - Initial Commit
-  * Added Readme
-
 <!-- ## Getting Started
 
 ### Dependencies
