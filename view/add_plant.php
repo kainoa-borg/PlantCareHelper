@@ -1,7 +1,7 @@
 <html>
     <body>
         <a href="index.php">Return Home</a>
-        <form action="../model/add_query.php">
+        <form action="index.php?action=add_plant_query" method='POST'>
             <label>
                 Plant Name
             </label>
