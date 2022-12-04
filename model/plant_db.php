@@ -32,7 +32,6 @@
             die();
         }
     }
-
     function get_user_plant_list($u_id) {
         $user = 'root';
         $pass = '';
@@ -148,7 +147,6 @@
             die();
         }
     }
-
     function delete_plant($delete_plant_id) {
         $user = 'root';
         $pass = '';
@@ -161,6 +159,29 @@
         echo $q;
         try {
             $result = $db->query($q);
+        } catch (PDOException $e) {
+            echo 'Error Thrown: ' . $e->getMessage();
+            die();
+        }
+    }
+    function search_plant_list($search_term) {
+        $user = 'root';
+        $pass = '';
+        $db = new PDO('mysql:host=localhost;dbname=pch', $user, $pass);
+        try {
+            $result = $db->query(
+                'SELECT 
+                p_id, 
+                p_name, 
+                water_per_week,
+                container_size,
+                soil_type,
+                light_level
+                FROM PLANT INNER JOIN SOIL INNER JOIN LIGHT 
+                WHERE soil_id = s_id AND light_id = l_id AND p_name = "'.$search_term.'"
+                ORDER BY p_id ASC
+                ');
+            return $result;
         } catch (PDOException $e) {
             echo 'Error Thrown: ' . $e->getMessage();
             die();

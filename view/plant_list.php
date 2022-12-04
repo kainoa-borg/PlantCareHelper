@@ -33,6 +33,11 @@
     <body>
     <main>
    <section>
+    <form action='?action=search_plant_list' method='POST'>
+        <label for="search">Search for plants</label>
+        <input id='search' type="text" name='search_term'>
+        <button>Submit</button>
+    </form>
       <table>
          <tr>
             <th>

@@ -107,7 +107,11 @@
         }
         case 'register_user': {
             $username = filter_input(INPUT_POST, 'username');
-            $password = filter_input(INPUT_POST, 'password');
+            $password = filter_input(INPUT_POST, 'password1');
+            $confirm_pass = filter_input(INPUT_POST, 'password2');
+            if ($password != $confirm_pass) {
+                header('Location: ?action=landing');
+            }
             if (register_user($username, $password)) {
                 $_SESSION['is_valid'] = true;
                 header('Location: ?action=landing');
@@ -128,6 +132,16 @@
                 header('Location: ?action=login&failed_last=true');
             }
             // include('');
+            break;
+        }
+        case 'search_plant_list': {
+            $search_term = filter_input(INPUT_POST, 'search_term');
+            if ($search_term == '') {
+                echo 'Please enter a search term';
+                Header('Location: ?action=landing');
+            }
+            $result = search_plant_list($search_term);
+            include('../view/plant_list.php');
             break;
         }
         case 'logout': {
